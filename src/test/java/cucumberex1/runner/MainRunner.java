@@ -7,7 +7,7 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features = {"src/test/java/cucumberex1/featurefiles/"},
+		features = {"src/test/java/cucumberex1/ffoutline/"},
 		glue = {"cucumberex1.steps"},
 		monochrome = true,
 		tags = "",

@@ -20,8 +20,26 @@ public class HomePage extends BasePage{
 
 	@FindBy(how = How.ID, using = "sign-in" )
 	private WebElement signIn;
+	
+	@FindBy(how = How.LINK_TEXT, using = "Sign out")
+	private WebElement signOut;
+	
+	@FindBy(how = How.LINK_TEXT, using = "Addresses")
+	private WebElement addresses;
 
 	public void clickSignIn() {
 		click(signIn);
+	}
+	
+	public void clickSignOut() {
+		click(signOut);
+	}
+	
+	public void clickAddresses() {
+		click(addresses);
+	}
+	
+	public void isAddressesLinkVisible() {
+		waitUntilVisible(addresses);
 	}
 }

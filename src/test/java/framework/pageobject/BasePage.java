@@ -23,5 +23,13 @@ public class BasePage {
 	public void type(WebElement element, String value) {
 		wait.until(ExpectedConditions.visibilityOf(element));
 		element.sendKeys(value);
-	}	
+	}
+	
+	public void waitUntilVisible(WebElement element) {
+		wait.until(ExpectedConditions.visibilityOf(element));
+	}
+	
+	public void waitUntilTheElementContainsText(WebElement element, String text) {
+		wait.until(ExpectedConditions.textToBePresentInElement(element, text));
+	}
 }

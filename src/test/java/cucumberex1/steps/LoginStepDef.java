@@ -37,13 +37,13 @@ public class LoginStepDef {
 	@Given("The user enters the user name")
 	public void theUserEntersTheUserName() {
 		System.out.println("the user enters user name");
-		loginPage.enterUserName();
+		loginPage.enterUserName("avinash.vcentry1@gmail.com");
 	}
 
 	@Given("The user enters the password")
 	public void theUserEntersThePassword() {
 		System.out.println("the user enters the password");
-		loginPage.enterPassword();
+		loginPage.enterPassword("Sadu2006$");
 	}
 
 	@When("Click on the Sign in button")
@@ -55,12 +55,47 @@ public class LoginStepDef {
 	@Then("User should be able to Login Successfully")
 	public void userShouldBeAbleToLoginSuccessfully() {
 		System.out.println("the user should be able to login successfully");
+		homePage.isAddressesLinkVisible();
 	}
 
 	@Then("User logs out by clicking on sign out link")
 	public void userLogsOutByClickingOnSignOutLink() {
 		System.out.println("the user clicks on Sign out Link");
+		homePage.clickSignOut();
 	}
+	
+	@Given("The user enters an invalid user name")
+	public void theUserEntersAnInvalidUserName() {
+	   loginPage.enterPassword("avinashact@gmail.com");
+	}
+
+	@Then("Appropirate Error message must be shown")
+	public void appropirateErrorMessageMustBeShown() {
+		loginPage.validateErrorMessgeShown("Bad email or password.");
+	}
+	
+	@Given("^The user enters an ([^\"]*)$")
+	public void theUserEntersAnEmail(String email) {
+		 System.out.println(email);
+		 loginPage.enterUserName(email);
+	}
+
+	@Given("^The user enters the ([^\"]*)$")
+	public void theUserEntersThePassword(String password) {
+		 System.out.println(password);
+		 loginPage.enterPassword(password);
+	}
+
+	@Then("^Login should be ([^\"]*)$")
+	public void validateTheSuccessOrFailure(String result) {
+	    System.out.println(result);
+	    if(result.equals("success")) {
+	    	homePage.isAddressesLinkVisible();
+	    } else {
+	    	loginPage.validateErrorMessgeShown("Bad email or password.");
+	    }
+	}
+
 	
 	@After
 	public void tearDown() {
