@@ -22,6 +22,8 @@ public class LoginPage extends BasePage{
 	@FindBy(name="commit")
 	private WebElement signInButton;
 	
+	@FindBy(xpath = "//div[contains(@class, 'alert-notice')]")
+	private WebElement badEmailError;
 	
 	public void login() {
 		type(email, "avinash.vcentry1@gmail.com");
@@ -29,12 +31,16 @@ public class LoginPage extends BasePage{
 		click(signInButton);
 	}
 	
-	public void enterUserName() {
-		type(email, "avinash.vcentry1@gmail.com");
+	public void enterUserName(String value) {
+		type(email, value);
 	}
 	
-	public void enterPassword() {
-		type(password, "Sadu2006$");
+	public void enterPassword(String value) {
+		type(password, value);
+	}
+	
+	public void validateErrorMessgeShown(String message) {
+		waitUntilTheElementContainsText(badEmailError, message);
 	}
 	
 	public void clickSignInButton() {
