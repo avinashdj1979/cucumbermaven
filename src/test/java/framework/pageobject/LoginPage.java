@@ -29,4 +29,16 @@ public class LoginPage extends BasePage{
 		click(signInButton);
 	}
 	
+	public void enterUserName() {
+		type(email, "avinash.vcentry1@gmail.com");
+	}
+	
+	public void enterPassword() {
+		type(password, "Sadu2006$");
+	}
+	
+	public void clickSignInButton() {
+		click(signInButton);
+	}
+	
 }
