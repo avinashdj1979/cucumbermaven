@@ -27,7 +27,7 @@ public class DriverFactory {
 	public static final String AUTOMATE_KEY = "Ehdxz9iyqbZUyFmqvnT2";
 	public static final String URL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
 
-	private static WebDriver driver;
+	public static WebDriver driver;
 	
 	public static WebDriver getDriver() {
 		PropertyReader props = new PropertyReader();
@@ -87,6 +87,7 @@ public class DriverFactory {
 			driver = null;
 			break;
 		}
+
 		
 		//driver.manage().window().maximize();
 		Integer waitTime = Integer.parseInt(props.getProperty(UIConstants.IMPLICITLY_WAIT_TIME));
