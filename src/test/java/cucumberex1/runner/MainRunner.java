@@ -12,7 +12,7 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 		features = {"src/test/java/cucumberex1/ffoutline/"},
 		glue = {"cucumberex1.stepsoutline"},
 		monochrome = true,
-		plugin = {"pretty", "html:target/cucumber.html","json:target/cucumber.json"}
+		plugin = {"pretty", "html:target/cucumber.html","json:target/cucumber.json","com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
 		)
 public class MainRunner extends AbstractTestNGCucumberTests{
 	
