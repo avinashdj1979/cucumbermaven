@@ -24,7 +24,7 @@ Feature: User login to the website
  Background:
  Given The user clicks on the Sign in Link
 
-  @P0
+  @P0 @Valid
   Scenario: User login to the website with valid credentials
     When The user enters the user name
     And The user enters the password
@@ -32,7 +32,7 @@ Feature: User login to the website
    	Then User should be able to Login Successfully
    	And User logs out by clicking on sign out link
    	
-  @P1
+  @P1 @InValid
   Scenario: User login to the website with invalid credentials
     When The user enters an invalid user name
     And The user enters the password
